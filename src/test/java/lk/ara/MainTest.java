@@ -5,6 +5,8 @@ import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.Set;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
@@ -30,8 +32,9 @@ public class MainTest {
 			driverName = "drivers/chromedriver-l";
 		}
 
-		ClassLoader classLoader = getClass().getClassLoader();
-		System.setProperty("webdriver.chrome.driver", classLoader.getResource(driverName).getFile());
+		//ClassLoader classLoader = getClass().getClassLoader();
+		//System.setProperty("webdriver.chrome.driver", classLoader.getResource(driverName).getFile());
+		System.setProperty("webdriver.chrome.driver", "/projects/my-selenium/src/test/java/drivers/chromedriver-l");
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("headless");
 		options.addArguments("window-size=1200x600");
