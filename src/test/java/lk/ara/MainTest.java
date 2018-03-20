@@ -22,10 +22,16 @@ public class MainTest {
 	private ScreenshotHelper screenshotHelper = new ScreenshotHelper();
 
 	@Test
-	public void f() throws IOException {
-		ClassLoader classLoader = getClass().getClassLoader();
+	public void helloTestNG() throws IOException {
+		String driverName = null;
+		if ("Mac OS X".equals(System.getProperty("os.name"))) {
+			driverName = "drivers/chromedriver";
+		} else {
+			driverName = "drivers/chromedriver-l";
+		}
 
-		System.setProperty("webdriver.chrome.driver", classLoader.getResource("drivers/chromedriver").getFile());
+		ClassLoader classLoader = getClass().getClassLoader();
+		System.setProperty("webdriver.chrome.driver", classLoader.getResource(driverName).getFile());
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("headless");
 		options.addArguments("window-size=1200x600");
